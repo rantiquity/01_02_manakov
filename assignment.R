@@ -25,5 +25,5 @@ my_data <- works |>
 # сколько произведений Шекспира и Марлоу хранится в библиотеке Gutenberg
   my_data3 <- my_data2 |>
     group_by(author) |> 
-    summarise(number_of_works = n()) |> 
-    arrange(-number_of_works)
+    summarise(n = n()) |> 
+    arrange(-n)
