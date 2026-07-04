@@ -18,12 +18,9 @@ my_data <- works |>
   my_data2 <- my_data |>
     separate(author, into = c("author", "name"), sep = ", ") |> 
     select(-name)
-    # либо (без создания дополнительного столбца для удаления):
-    # separate(author, c("A", NA), sep = ", ")
-
+   
 # (3) Используйте group_by() и summarise(), чтобы узнать,
 # сколько произведений Шекспира и Марлоу хранится в библиотеке Gutenberg
   my_data3 <- my_data2 |>
     group_by(author) |> 
-    summarise(n = n()) |> 
-    arrange(-n)
+    summarise(n = n())
